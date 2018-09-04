@@ -1,0 +1,7 @@
+.img-padd{
+    padding: 2%;
+}
+
+.img-blur{
+    filter: grayscale(100%);
+}

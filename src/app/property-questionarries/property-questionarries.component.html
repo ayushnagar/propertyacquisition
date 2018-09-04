@@ -1,0 +1,139 @@
+<div class="container" style="text-align: left; margin-left: 15%; margin-right: 2%">
+<div class="row">
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="../../assets/images/step-1.jpg" alt="step1" width="40%" class="img-padd img-blur" />
+      </div>
+      <div class="col-md-4">
+        <img src="../../assets/images/step-2.jpg" alt="step2" width="40%" class="img-padd" />
+      </div>
+      <div class="col-md-4">
+        <img src="../../assets/images/step-3.jpg" alt="step3" width="40%" class="img-padd img-blur" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        Create new property
+      </div>
+      <div class="col-md-4">
+        Questionnaries
+      </div>
+      <div class="col-md-4">
+        File Uploads
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3">
+        Property Name
+      </div>
+      <div class="col-md-9">
+        <b>{{ propertyName }}</b> -  Address: {{ propertyDesc }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3">
+        Start Date
+      </div>
+      <div class="col-md-5">
+        <input type="date" [(ngModel)]="startdate" (change)="dateSelect();">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+</div>
+<div class="row" *ngFor="let quest of questionnaries; let i = index">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10">
+        <b>{{ quest.Questions }}</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-11" *ngIf="quest.Answers.length > 1;let j=index">
+        <div *ngFor="let ans of quest.Answers" class="form-check form-check-inline">
+          <input type="radio" [name]="'rb_' + i" value="ans.Options" (change)="getRadioSelection(i, ans.Options);">{{ans.Options}}
+        </div>   
+      </div>
+    </div>
+    <div class="row">  
+      <div class="col-md-6" *ngIf="quest.Answers.length == 0">
+        <div *ngIf="i == 3">
+          <input type="number" class="form-control" width="20%" [(ngModel)] = "builtArea">
+        </div>
+        <div *ngIf="i == 4">
+          <input type="number" class="form-control" width="20%" [(ngModel)] = "carpetArea">
+        </div> 
+        <div *ngIf="i == 5" class="row">
+          <div class="col-md-10">
+              <input type="text" class="form-control" width="20%" [(ngModel)] = "locationlink">
+              
+          </div>
+          <div class="col-md-2" style="margin-left: -30px">
+              <a class="btn btn-default btn-sm" href="https://www.google.co.in/maps/" target="new" alt="Go to Maps">
+                  <img src="../../assets/images/globe.png" width="30px" height="30px" alt="Go to Maps">
+              </a>
+          </div>
+          
+        </div>  
+        
+      </div>
+      <div class="col-md-3" *ngIf="i == 5">
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="col-md-11">
+      <b>Location Link</b>
+    </div>
+    <div class="col-md-8">
+      <input type="text" name="locationlink" class="form-control" [(ngModel)]="locationlink" width="50%">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+</div> -->
+<div class="col-md-12" style="text-align: center">
+  <button class="btn btn-primary" [disabled]="notFilled()">Save as Draft</button>&nbsp;
+  <button class="btn btn-primary" [disabled]="notFilled()" 
+  (click)="save();">Save and Continue</button>
+</div>
+<div class="col-md-12">
+  &nbsp;
+</div>
+</div>

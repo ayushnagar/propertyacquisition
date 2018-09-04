@@ -1,0 +1,23 @@
+.fixed-position{
+    position: fixed;
+    z-index: 1;
+    left:0;
+}
+
+.img-round{
+    border-radius: 50%;
+}
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+.nav-link{
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+}
+
+.ml-auto .dropdown-menu{
+    left: auto !important;
+    right: 0px;
+}

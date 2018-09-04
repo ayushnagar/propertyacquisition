@@ -1,0 +1,104 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <h3>New Property Details Preview</h3>
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      Property Name : <b>{{ propertyName }}</b> - {{ propertyDetails }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <b>Site Details</b>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ brandDetails }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ storeType }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ storeFormat }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ builtArea }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ carpetArea }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          Location Link : <a [href]="[location_link]" _target="new" >{{ location_link }}</a>
+        </div>
+      </div>
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+      <div class="col-md-12" style="text-align: right">
+        <button class="btn btn-primary" (click)="save();">Submit</button>
+      </div>
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <img [src] = "large_Image" width="500" height="400">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          &nbsp;
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <div *ngFor="let items of img_list" style="width: 20%; float: left;">
+              <img [src] = items width="50" height="50" (mouseenter)="onover(items);">
+              
+          </div>
+          
+        </div>
+      </div> -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+</div>

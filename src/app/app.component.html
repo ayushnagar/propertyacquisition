@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <div>
+    <div class="row" *ngIf="isLoggedIn === true">
+      <div class="col-md-12">
+        <div class="row" >
+          <div class="col-md-12">
+            <app-master></app-master>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            &nbsp;
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              
+              <app-nav-menu></app-nav-menu>
+              
+              <div class="col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <router-outlet></router-outlet>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    
+  </div>
+  
+
+
+

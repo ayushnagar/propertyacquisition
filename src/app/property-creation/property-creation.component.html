@@ -1,0 +1,98 @@
+<form #formName = "ngForm">
+<div class="row">
+  <div class="col-md-9 offset-md-3">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="../../assets/images/step-1.jpg" alt="step1" width="40%" class="img-padd" />
+      </div>
+      <div class="col-md-4">
+        <img src="../../assets/images/step-2.jpg" alt="step2" width="40%" class="img-padd img-blur" />
+      </div>
+      <div class="col-md-4">
+        <img src="../../assets/images/step-3.jpg" alt="step3" width="40%" class="img-padd img-blur" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        Create new property
+      </div>
+      <div class="col-md-4 img-blur">
+        Questionnaries
+      </div>
+      <div class="col-md-4 img-blur">
+        File Uploads
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+  <div class="col-md-12">
+      &nbsp;
+    </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3 offset-md-1" style="text-align: right">
+        Property Name
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" name="propertyNm" width="100%" required minlength="10" maxlength="100" [(ngModel)]="propertyName">
+        <div class="input-validation"></div>
+      </div>
+      <div class="col-md-1">
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3 offset-md-1" style="text-align: right">
+        State
+      </div>
+      <div class="col-md-5">
+        <select class="form-control" id="state" name="state" [(ngModel)] = "stateName" (change)="selectState();">
+          <option *ngFor="let states of state">{{states}}</option>
+        </select>  
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+  <div class="col-md-12">
+     <div class="row">
+      <div class="col-md-3 offset-md-1" style="text-align: right">
+        City
+      </div>
+      <div class="col-md-5">
+        <select class="form-control" id="city" name="city" [(ngModel)] = "cityName" (change)="selectCity();">
+          <option *ngFor="let cities of city">{{cities}}</option>
+        </select>  
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    &nbsp;
+  </div> 
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-3 offset-md-1" style="text-align: right">
+        Address
+      </div>
+      <div class="col-md-5">
+        <textarea name="txtAdd" id="" cols="30" rows="3" class="form-control" name="add" [(ngModel)] = "address"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+  <div class="col-md-12" style="text-align: right">
+    <button class="btn btn-primary" [disabled]=!formName.form.valid>Save as Draft</button>&nbsp;
+    <button class="btn btn-primary" [disabled]=!formName.form.valid (click)="save();">Save and Continue</button>
+  </div>
+</div>
+</form>

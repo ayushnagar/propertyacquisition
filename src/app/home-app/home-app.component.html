@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-10">
+    <input type="text" name="search" placeholder="Search">
+  </div>
+  <div class="col-md-2" style="text-align: right;" *ngIf="userName === 'admin'">
+    <button class="btn btn-primary" (click)="onNewProperty();">New Property</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="topnav">
+      <a class="active" style="cursor: pointer;" (click)="link('All')">All</a>
+      <a style="cursor: pointer;" (click)="link('Screening1')">Screening 1 - Before Visit</a>
+      <a style="cursor: pointer;" (click)="link('Screening2')">Screening 2 - After Visit</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+  </div>
+</div>
+<div class="row" id="data">
+  <div class="col-md-12">
+    <div *ngIf="data.length == 0">
+      No Property Added
+    </div>
+    <div *ngIf="data != undefined">
+      <div class="row list-deco" *ngFor="let dtls of data" >
+        <div class="col-md-2">
+          <img src="../assets/images/no-image-available.png" alt="" width="80%">
+        </div>
+        <div class="col-md-7" style="text-align: left">
+            <div *ngIf="((dtls.Status == 'Screening 1 in Progress' || dtls.Status == 'Initiated' || dtls.Status == 'Site Visit Scheduled') && userName != 'admin')">
+                <a href="propertyrercfeedback?ID={{dtls.ID}}" style="color: black;"><b>{{ dtls.PropertyName }}</b></a><br>
+            </div>
+            <div *ngIf="dtls.Status == 'Screening 2 in Progress' && userName != 'admin'">
+                <a href="propertysitevisitfeedback?ID={{dtls.ID}}" style="color: black;"><b>{{ dtls.PropertyName }}</b></a><br>
+            </div>
+            <div *ngIf="userName == 'admin'">
+                <a href="propertyrercfeedback?ID={{dtls.ID}}" style="color: black;"><b>{{ dtls.PropertyName }}</b></a><br>
+            </div>
+            <div *ngIf="dtls.Status == 'Property Completed' && userName != 'admin'">
+                <a href="propertyrercfeedback?ID={{dtls.ID}}" style="color: green;"><b>{{ dtls.PropertyName }}</b></a><br>
+            </div>
+            <div>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;
+                  <a [href]="dtls.Location_Link" target="_blank">{{ dtls.Address }}, {{ dtls.City }}, {{ dtls.State }} (Show Map)</a>
+            </div>
+            <div>
+                Status : {{ dtls.Status }}
+                <i *ngIf="dtls.Status == 'Property Completed'" class="fa fa-thumbs-up"></i>
+                
+            </div>
+            <div *ngIf="userName == 'admin'">
+              <div *ngIf="dtls.Status == 'Screening 2 in Progress' || dtls.Status == 'Screening 1 in Progress' || dtls.Status == 'Initiated'">
+                <button class="btn btn-success btn-sm" *ngIf="dtls.Status == 'Screening 2 in Progress'" (click)="projectCompleted(dtls.ID)">Project Completed</button>
+                &nbsp;<button class="btn btn-danger btn-sm" (click)="projectReject(dtls.ID)">Reject</button>
+              </div>
+            </div>
+          </div> 
+          <div class="col-md-3 font-base">
+            Created on : {{ dtls.CreatedDate }}
+          </div>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>

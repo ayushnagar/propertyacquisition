@@ -1,0 +1,90 @@
+<form #imageForm=ngForm>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <h3>File Upload</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr />
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th colspan="2">Upload Files</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="file" #image (change)="handleInputFile($event.target.files)" style="display : none">
+                                        <a (click)="image.click()" style="cursor: pointer;text-decoration: underline; color: dodgerblue">Add Files</a>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let items of fileUploaded">
+                                    <td>
+                                        {{ items.name }}
+                                    </td>
+                                    <td>
+                                        {{ items.status }}
+                                    </td>
+                                </tr>
+                                <tr *ngIf="fileUploaded.length > 0">
+                                    <td colspan="2">
+                                        <button type="submit" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                        <div class="col-md-12">
+                            <h4>Uploaded Files</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12" *ngFor="let items of uploadedList">
+                                    <a [href]="[items.file]" target="blank" style="cursor: pointer; text-decoration: underline;color: black ">
+                                        {{items.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+            </div>
+        </div>
+        <div class="row" *ngIf="uploadedList.length > 0">
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+            <div class="col-md-12" style="text-align: right">
+                <button class="btn btn-primary" (click)="preview();">Preview Property Details</button>&nbsp;
+            </div>
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</form>

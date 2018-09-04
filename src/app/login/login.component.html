@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div style="padding-left: 10%; padding-bottom: 10px;"> 
+        <img src="../assets/images/Raymond_Logo.jpg" alt="" width="50%">
+      </div>
+      <div class="col-sm-12 col-md-10 col-md-offset-1 box_body">
+        <form action="" id="loginForm">
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input class="form-control" type="text" name='username' placeholder="username" [(ngModel)] = "username"/>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control" type="password" name='password' placeholder="password" [(ngModel)] = "password" />
+          </div>
+
+          <div class="form-group">
+            <button type="button" class="btn btn-danger btn-block" (click)="login();">Login</button>
+          </div>
+          <div class="form-group text-center">
+            <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

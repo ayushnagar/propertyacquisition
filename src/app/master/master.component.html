@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/images/Raymond_Logo.jpg" alt="" style="width: 60%">
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="#" class="nav-link"><b>About Us</b></a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link"><b>Contact Us</b></a>
+    </li>  
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" style="text-align: right;">
+      <a href="#" class="nav-link">
+          <img src="../../assets/images/img_avatar.png" alt="" class="img-round" style="width: 10%">
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <!-- <a class="nav-link" (click)="profile()" style="cursor: pointer;">
+        
+      </a>
+      <a class="nav-link" id="navbar" (click)="logout()" style="cursor: pointer;">Logout</a> -->
+      <span dropdown>
+        <a href id="basic-link" dropdownToggle (click)="false"
+           aria-controls="basic-link-dropdown">{{userName}}<br>Last Login: {{lastLogin}}</a>
+        <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="basic-link">
+          <li>
+            <a class="dropdown-item" id="navbar" (click)="logout()" style="cursor: pointer;">Logout</a>
+          </li>
+        </ul>
+      </span>
+    </li>
+  </ul>
+</nav>  

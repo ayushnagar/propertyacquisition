@@ -1,0 +1,193 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      Property Name : <b>{{ propertyName }}</b> - {{ propertyDetails }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row">
+        <div class="col-md-12">
+          <b>Site Details</b>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ brandDetails }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ storeType }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ storeFormat }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ builtArea }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{ carpetArea }}
+        </div>
+      </div>
+      <div class="col-md-12">
+        &nbsp;
+      </div>  
+      <div class="row" *ngIf="screeningdetails !== null">
+        <div class="col-md-12">
+          <div class="row" *ngFor="let details of screeningdetails">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12" >
+                  <b>Screening 1: {{details.Name}} - {{ details.Designation }}</b>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <hr />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                    Input : <b>{{ details.Sreening_Answer }}</b><br>
+                    Feedback : <b>{{ details.Site_Feedback}}</b>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <b>Screening : {{ designation }}</b>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                Please provide your input based on initial site presentation and other details
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <b>{{ selectedOption }}</b>
+            </div>
+          </div>
+          <div class="row" *ngFor="let opt of options">
+            <div class="col-md-12">
+              <button id="feedopt" [style.background-color]="opt.color" class="form-control" style="color: white; font-size: 12px; margin: 2%;" name="feedopt" (click)="select($event);">{{opt.Title}}</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              &nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7" *ngIf="screening2details.length > 0">
+      <div class="row">
+        <div class="col-md-12">
+          <b>Screening 2 Input: After Visit</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <hr /> -->
+          &nbsp;
+        </div>
+      </div>
+      <div class="row" *ngIf="keys.length > 0">
+        <div class="col-md-12">
+          <!-- <div *ngFor="let items of img_list" style="width: 20%; float: left;">
+              <img [src] = items width="50" height="50" (mouseenter)="onover(items);">
+              
+          </div> -->
+          <table class="table table-border" *ngIf="keys.length > 0 && screening2details.length > 0">
+            <thead>
+              <tr>
+                <th *ngFor="let keyData of keys">
+                  <span *ngIf="keyData != 'ID'">{{ keyData }}</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of screening2details">
+                <td *ngFor="let keyData of data; let i=index">
+                  <span *ngIf="keyData.key === 'Questions' ">{{ keyData.value }}</span>
+                  <p *ngIf="keyData.key != 'ID' && keyData.key != 'Questions'" class="rcorners1" 
+                  [style.background-color]="[keyData.value]">
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
+    <div class="col-md-3">
+      <b>Site Feedback</b>
+    </div>
+    <div class="col-md-8">
+      <textarea name="feedback" id="feedback" cols="60" rows="3" [(ngModel)]="feedback"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row" *ngIf="(userName === 'admin' && screeningdetails != undefined)">
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 1">
+      <button class="btn btn-primary" (click)="visitschedule(1);">Schedule a visit</button>
+    </div>
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 2">
+      <button class="btn btn-primary" (click)="visitschedule(2);">Visit Complete. Start Screening 2</button>
+    </div>
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 3">
+      <button class="btn btn-primary" (click)="visitschedule(3);">Project Complete</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
+    <div class="col-md-12" style="text-align: right">
+      <button class="btn btn-primary" (click)="save();">Submit</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  
+</div>

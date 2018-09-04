@@ -1,0 +1,19 @@
+.img-padd{
+    padding: 2%;
+}
+
+.img-blur{
+    filter: grayscale(100%);
+}
+
+/* input[type="text"]:valid ~ .input-validation::before
+{
+     /* background-image: url(../../assets/images/correct.png) no-repeat top right;  */
+    
+
+input[type="text"]:invalid ~ .input-validation::before
+{
+    content: "Invalid";
+    color : red;
+    /* background-image: url(../../assets/images/wrong.png) no-repeat top right; */
+}

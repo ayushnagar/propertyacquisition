@@ -1,0 +1,79 @@
+<form #formName = "ngForm">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>User Details</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+      </div>
+    </div>
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 offset-md-1" style="text-align: right">
+          <b>User Name</b>
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" name="userName" width="100%" 
+              required minlength="10" maxlength="100" [(ngModel)]="userName">
+          <div class="input-validation"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 offset-md-1" style="text-align: right">
+          <b>Name</b>
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" name="fullname" width="100%" 
+          required [(ngModel)]="fullname">  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+    <div class="col-md-12">
+       <div class="row">
+        <div class="col-md-3 offset-md-1" style="text-align: right">
+          <b>Email</b>
+        </div>
+        <div class="col-md-5">
+          <input type="email" class="form-control" name="email" width="100%" 
+          required [(ngModel)]="email">    
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      &nbsp;
+    </div> 
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 offset-md-1" style="text-align: right">
+          <b>Designation</b>
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" name="designation" width="100%" 
+          required [(ngModel)]="designation">  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+    <div class="col-md-12" style="text-align: center">
+      <button class="btn btn-primary form-control" style="padding: 10px;width: 20%">Change Password</button>&nbsp;
+      <button class="btn btn-primary form-control" style="padding: 10px;width: 10%">Edit</button>&nbsp;
+      <!-- <button class="btn btn-primary form-control" style="padding: 10px;width: 10%" [disabled]=!formName.form.valid (click)="save();">Save</button> -->
+    </div>
+  </div>
+  </form>
