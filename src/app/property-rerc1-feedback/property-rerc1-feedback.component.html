@@ -171,13 +171,13 @@
     </div>
   </div>
   <div class="row" *ngIf="(userName === 'admin' && screeningdetails != undefined)">
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 1">
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '1'">
       <button class="btn btn-primary" (click)="visitschedule(1);">Schedule a visit</button>
     </div>
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 2">
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '2'">
       <button class="btn btn-primary" (click)="visitschedule(2);">Visit Complete. Start Screening 2</button>
     </div>
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == 3">
+    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '3'">
       <button class="btn btn-primary" (click)="visitschedule(3);">Project Complete</button>
     </div>
   </div>
