@@ -131,15 +131,17 @@
             <thead>
               <tr>
                 <th *ngFor="let keyData of keys">
-                  <span *ngIf="keyData != 'ID'">{{ keyData }}</span>
+                  <span *ngIf="keyData != 'ID' && keyData != 'Main_Header_Seq'">{{ keyData }}</span>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let data of screening2details">
                 <td *ngFor="let keyData of data; let i=index">
-                  <span *ngIf="keyData.key === 'Questions' ">{{ keyData.value }}</span>
-                  <p *ngIf="keyData.key != 'ID' && keyData.key != 'Questions'" class="rcorners1" 
+                  <span style="font-weight: bold" *ngIf="keyData.key === 'Classification'">{{ keyData.value }}</span>
+                  <span *ngIf="keyData.key === 'Questions'">{{ keyData.value }}</span>
+                  <p *ngIf="keyData.key != 'ID' && keyData.key != 'Questions' && keyData.key != 'Classification'" 
+                  class="rcorners1" 
                   [style.background-color]="[keyData.value]">
                   </p>
                 </td>
