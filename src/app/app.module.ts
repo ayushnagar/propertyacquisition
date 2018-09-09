@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +26,7 @@ import { PropertyRec2FeedbackComponent } from './property-rec2-feedback/property
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LocationMapComponent } from './location-map/location-map.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PropertySchemeQualityComponent,
     PropertyRec2FeedbackComponent,
     LogoutComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    LocationMapComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCetJihayJEcBO1yWmNa7K8nwZOkdzbIOE' 
+    })
   ],
   providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]

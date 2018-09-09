@@ -1,82 +1,62 @@
-<div>
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
-      Property Name : <b>{{ propertyName }}</b> - {{ propertyDetails }}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-1">
       &nbsp;
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-12">
-          <b>Site Details</b>
-          <hr />
-        </div>
+      <div class="col-md-7 col-sm-7">
+          <span class="header">{{ propertyName }}</span><br>
+        <a href="#" target="_blank" alt="Location"><i class="fa fa-map-marker" aria-hidden="true"></i></a>&nbsp;
+        <span class="sub-header">{{ propertyDetails }}</span>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ brandDetails }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ storeType }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ storeFormat }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ builtArea }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ carpetArea }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          Location Link : <a [href]="[location_link]" target="new" >{{ location_link }}</a>
-        </div>
-      </div>
-      <div class="col-md-12">
-        &nbsp;
-      </div>
-    </div>
-    <!-- <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-12">
-          <img [src] = "large_Image" width="500" height="400">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          &nbsp;
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div *ngFor="let items of img_list" style="width: 20%; float: left;">
-              <img [src] = items width="50" height="50" (mouseenter)="onover(items);">
-              
-          </div>
-          
-        </div>
-      </div>
-    </div> -->
+      
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-7">
+    <div class="col-md-9">
+      <div class="row list-deco">
+        <div class="col-md-5">
+          <img src="../assets/images/no-image-available.png" alt="" width="225px" height="175px">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <b>Site Details</b>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ brandDetails }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ storeType }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ storeFormat }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ builtArea }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ carpetArea }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row title-border">
+    <div class="col-md-12 ">
+      <div class="row title-deco">
+        <div class="col-md-7 ">
           <b>Screening Questionnaries : After Property Visit</b>
         </div>
         <div class="col-md-5" style="text-align: right">
@@ -99,7 +79,7 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-4"
-                     *ngFor="let options of question.Answers; let i = index">
+                      *ngFor="let options of question.Answers; let i = index">
                       <div class="row">
                         <div class="col-md-12" *ngIf="i == 0">
                           <button name="btn" [style.background-color]="options.Color" class="form-control" 
@@ -140,7 +120,7 @@
         </div>
       </div>
       <div class="row" *ngIf="userName != 'admin'">
-        <div class="col-md-12">
+        <div class="col-md-12 mb-3">
           <button class="btn btn-primary" (click)="saveScreening2();">Submit Feedback</button>
         </div>
       </div>
@@ -152,4 +132,3 @@
     </div>
   </div>
 </div>
-

@@ -90,7 +90,8 @@ export class PropertyRec2FeedbackComponent implements OnInit {
         this.builtArea = details[3];
         this.carpetArea = details[4];
         this.location_link = this.property.Location_Link;
-        this.propertyName = this.property.PropertyName + ", " + this.property.Address + ", " + this.property.City + ", " + this.property.State;
+        this.propertyName = this.property.PropertyName;
+        this.propertyDetails = this.property.Address + ", " + this.property.City + ", " + this.property.State;
       });
     
   }

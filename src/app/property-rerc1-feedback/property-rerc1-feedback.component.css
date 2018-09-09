@@ -2,3 +2,44 @@
     width: 20px;
     height: 20px;    
 }
+
+.list-deco{
+    padding: 1.5%;
+    margin: 1%;
+    border : 0.5px solid #000000;
+    border-radius: 5px;
+    
+}
+
+.header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.sub-header{
+    font-weight: 8px;
+    color: black;
+    
+}
+
+.title-border{
+    border : 0.5px solid #000000;
+    border-radius: 5px 5px 0px 0px;
+    margin: 1%;
+    padding: 0.2%;
+}
+
+.title-deco{
+    background-color: #E9DF0E;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.name-span{
+    text-decoration: underline;
+    font-weight: bold;
+}

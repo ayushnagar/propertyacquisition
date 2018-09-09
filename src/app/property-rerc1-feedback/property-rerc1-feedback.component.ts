@@ -38,10 +38,10 @@ export class PropertyRerc1FeedbackComponent implements OnInit {
   visitStatus : string;
   keys : any[] = [];
 
-  options = [{ id: 1, color : "#006400", Title : "Ideal Location - Good to go ahead with proposal"},
-             { id: 2, color : "#00FF00", Title : "In-principle Approved - Require Site visit"},
-             { id: 3, color : "#FFC200", Title : "Require site visit for feedback"},
-             { id: 4, color : "#FF0000", Title : "Proposal Rejected"}];
+  options = [{ id: 1, color : "#FFFFFF",postcolor : "#34a91F", Title : "Ideal Location - Good to go ahead with proposal"},
+             { id: 2, color: "#FFFFFF",postcolor : "#00FF00", Title : "In-principle Approved - Require Site visit"},
+             { id: 3, color: "#FFFFFF",postcolor : "#FFC200", Title : "Require site visit for feedback"},
+             { id: 4, color: "#FFFFFF",postcolor : "#FF0000", Title : "Proposal Rejected"}];
   brandheadopt : string;           
   propertyScreening : PropertyScreening;
   feedback : string;
@@ -76,7 +76,7 @@ export class PropertyRerc1FeedbackComponent implements OnInit {
     //     console.log(this.userID);
     //     console.log("Data is " + this.isScreenDone.length);
     //   }, 2000);
-    
+    console.log(this.screeningdetails); 
   }
 
   onover(item : string){
@@ -93,7 +93,8 @@ export class PropertyRerc1FeedbackComponent implements OnInit {
         this.storeFormat = details[2];
         this.builtArea = details[3];
         this.carpetArea = details[4];
-        this.propertyName = this.property.PropertyName + ", " + this.property.Address + ", " + this.property.City + ", " + this.property.State;
+        this.propertyName = this.property.PropertyName;
+        this.propertyDetails = this.property.Address + ", " + this.property.City + ", " + this.property.State;
       });
     
   }
@@ -107,8 +108,26 @@ export class PropertyRerc1FeedbackComponent implements OnInit {
       });
   }
 
-  select(event){
-    this.selectedOption = event.srcElement.textContent;
+  select(id: number){
+    for(var i=0; i < this.options.length; i++){
+      if(this.options[i].id == id){
+        this.options[i].color = this.options[i].postcolor;
+        this.selectedOption = this.options[i].Title;
+      }
+      else{
+        this.options[i].color = "#FFFFFF";
+      }
+    }
+    //this.selectedOption = event.srcElement.textContent;
+    // if(this.options.find((item) => item.id == id))
+    // {
+    //   this.options.find((item) => item.id == id).color = this.options.find((item) => item.id == id).postcolor;
+    //   if(id == 1){
+    //     this.options.find((item) => item.id == 2).color = "#FFFFFF";
+    //     this.options.find((item) => item.id == 3).color = "#FFFFFF";
+    //     this.options.find((item) => item.id == 4).color = "#FFFFFF";
+    //   }
+    // }
   }
 
   insertNewScreeningDetails(){
@@ -143,7 +162,7 @@ export class PropertyRerc1FeedbackComponent implements OnInit {
     setTimeout(
       ()=>{
         this.router.navigate(["/home"]);
-      }, 9000
+      }, 10000
     );
   }
 

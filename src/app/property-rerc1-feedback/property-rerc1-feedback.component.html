@@ -1,107 +1,96 @@
-<div>
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
-      Property Name : <b>{{ propertyName }}</b> - {{ propertyDetails }}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-1">
       &nbsp;
     </div>
   </div>
+  <!-- <div class="row"> 
+    <div class="col-md-12 col-sm-1">
+      
+    </div>
+  </div> -->
   <div class="row">
-    <div class="col-md-5">
-      <div class="row">
-        <div class="col-md-12">
-          <b>Site Details</b>
-          <hr />
+    <div class="col-md-7 col-sm-7">
+        <span class="header">{{ propertyName }}</span><br>
+      <a href="#" target="_blank" alt="Location"><i class="fa fa-map-marker" aria-hidden="true"></i></a>&nbsp;
+      <span class="sub-header">{{ propertyDetails }}</span>
+    </div>
+    <div class="col-md-3 col-sm-3 mt-2" *ngIf="(userName === 'admin' && screeningdetails != undefined)">
+      <div class="row" >
+        <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '1'">
+          <button class="btn btn-primary" (click)="visitschedule(1);">Schedule a visit</button>
+        </div>
+        <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '2'">
+          <button class="btn btn-primary" (click)="visitschedule(2);">Visit Complete. Start Screening 2</button>
+        </div>
+        <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '3'">
+          <button class="btn btn-primary" (click)="visitschedule(3);">Project Complete</button>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ brandDetails }}
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row list-deco">
+        <div class="col-md-5">
+          <img src="../assets/images/no-image-available.png" alt="" width="225px" height="175px">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <b>Site Details</b>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ brandDetails }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ storeType }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ storeFormat }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ builtArea }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ carpetArea }}
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ storeType }}
-        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row list-deco">
+        <app-location-map></app-location-map>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ storeFormat }}
+    </div>
+  </div>
+  <div class="row" *ngIf="screeningdetails.length > 0">
+    <div class="col-md-9">
+      <div class="row title-border">
+        <div class="col-md-12 title-deco">
+          Screening - Before Visit
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ builtArea }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {{ carpetArea }}
-        </div>
-      </div>
-      <div class="col-md-12">
-        &nbsp;
-      </div>  
-      <div class="row" *ngIf="screeningdetails !== null">
         <div class="col-md-12">
           <div class="row" *ngFor="let details of screeningdetails">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-12" >
-                  <b>Screening 1: {{details.Name}} - {{ details.Designation }}</b>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <hr />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                    Input : <b>{{ details.Sreening_Answer }}</b><br>
-                    Feedback : <b>{{ details.Site_Feedback}}</b>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  &nbsp;
-                </div>
-              </div>
+            <div class="col-md-12 mt-2">
+              <span class="name-span">{{details.Name}} - {{ details.Designation }}</span>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
-        <div class="col-md-12">
-          <div class="row">
             <div class="col-md-12">
-              <b>Screening : {{ designation }}</b>
+              Input : {{ details.Sreening_Answer }}<br>
+              Feedback : {{ details.Site_Feedback}}
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <hr />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-                Please provide your input based on initial site presentation and other details
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <b>{{ selectedOption }}</b>
-            </div>
-          </div>
-          <div class="row" *ngFor="let opt of options">
-            <div class="col-md-12">
-              <button id="feedopt" [style.background-color]="opt.color" class="form-control" style="color: white; font-size: 12px; margin: 2%;" name="feedopt" (click)="select($event);">{{opt.Title}}</button>
-            </div>
-          </div>
-          <div class="row">
             <div class="col-md-12">
               &nbsp;
             </div>
@@ -109,9 +98,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-7" *ngIf="screening2details.length > 0">
-      <div class="row">
-        <div class="col-md-12">
+  </div>
+  <div class="row title-border" *ngIf="screening2details.length > 0">
+    <div class="col-md-12">
+      <div class="row ">
+        <div class="col-md-12 title-deco">
           <b>Screening 2 Input: After Visit</b>
         </div>
       </div>
@@ -152,44 +143,35 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      &nbsp;
-    </div>
-  </div>
-  <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
-    <div class="col-md-3">
-      <b>Site Feedback</b>
-    </div>
-    <div class="col-md-8">
-      <textarea name="feedback" id="feedback" cols="60" rows="3" [(ngModel)]="feedback"></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      &nbsp;
-    </div>
-  </div>
-  <div class="row" *ngIf="(userName === 'admin' && screeningdetails != undefined)">
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '1'">
-      <button class="btn btn-primary" (click)="visitschedule(1);">Schedule a visit</button>
-    </div>
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '2'">
-      <button class="btn btn-primary" (click)="visitschedule(2);">Visit Complete. Start Screening 2</button>
-    </div>
-    <div class="col-md-12" style="text-align: left" *ngIf="visitStatus == '3'">
-      <button class="btn btn-primary" (click)="visitschedule(3);">Project Complete</button>
-    </div>
-  </div>
-  <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
-    <div class="col-md-12" style="text-align: right">
-      <button class="btn btn-primary" (click)="save();">Submit</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      &nbsp;
-    </div>
-  </div>
   
+  <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
+    <div class="col-md-9">
+      <div class="row title-border">
+        <div class="col-md-12 title-deco">
+          Screening - Before Visit
+        </div>
+        <!-- <div class="col-md-12">
+          <b>Screening : {{ designation }}</b>
+        </div> -->
+        <div class="col-md-12 mt-3">
+            Please provide your input based on initial site presentation and other details
+        </div>
+        <div class="col-md-12">
+          <b>{{ selectedOption }}</b>
+        </div>
+        <div class="col-md-9" *ngFor="let opt of options">
+          <button id="feedopt" [style.background-color]="opt.color" class="form-control" 
+            style="color: black; font-size: 12px; margin: 2%;" name="feedopt" 
+            (click)="select(opt.id);">{{opt.Title}}</button>
+        </div>
+        <div class="col-md-8">
+          <b>Feedback</b> : <textarea name="feedback" id="feedback" cols="80" rows="3" 
+          [(ngModel)]="feedback"></textarea>
+        </div>
+        <div class="col-md-12 mb-2">
+          <button class="btn btn-primary" (click)="save();">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
