@@ -7,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AgmCoreModule } from '@agm/core';
 
+import { MatCardModule, MatSidenavModule, MatListModule, MatIconModule,
+          MatStepperModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -27,6 +30,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LocationMapComponent } from './location-map/location-map.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewPropertyComponent } from './new-property/new-property.component';
 
 
 @NgModule({
@@ -46,18 +51,25 @@ import { LocationMapComponent } from './location-map/location-map.component';
     PropertyRec2FeedbackComponent,
     LogoutComponent,
     UserProfileComponent,
-    LocationMapComponent
+    LocationMapComponent,
+    NewPropertyComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatStepperModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCetJihayJEcBO1yWmNa7K8nwZOkdzbIOE' 
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]

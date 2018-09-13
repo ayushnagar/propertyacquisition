@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
+  links = ['Home', 'View','Sadfsdfsdfsdfsdfdsfdsfsdfsdfef'];
   isLoggedIn : boolean;
 
   constructor() {
