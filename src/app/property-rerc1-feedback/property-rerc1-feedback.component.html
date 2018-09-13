@@ -76,7 +76,33 @@
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="screeningdetails.length > 0">
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+  <mat-accordion *ngIf="screeningdetails.length > 0">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <b>Screening - Before Visit</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="row" *ngFor="let details of screeningdetails">
+        <div class="col-md-12 mt-1">
+          <span class="name-span">{{details.Name}} - {{ details.Designation }}</span>
+        </div>
+        <div class="col-md-12 mt-2 input-display-data">
+          Input : {{ details.Sreening_Answer }}<br>
+          Feedback : {{ details.Site_Feedback}}
+        </div>
+        <div class="col-md-12">
+          &nbsp;
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- <div class="row" *ngIf="screeningdetails.length > 0">
     <div class="col-md-9">
       <div class="row title-border">
         <div class="col-md-12 title-deco">
@@ -98,20 +124,19 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row title-border" *ngIf="screening2details.length > 0">
+  </div> -->
+  <div class="row">
     <div class="col-md-12">
-      <div class="row ">
-        <div class="col-md-12 title-deco">
-          <b>Screening 2 Input: After Visit</b>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <!-- <hr /> -->
-          &nbsp;
-        </div>
-      </div>
+      &nbsp;
+    </div>
+  </div>
+  <mat-accordion *ngIf="screening2details.length > 0">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <b>Screening 2 Input: After Visit</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
       <div class="row" *ngIf="keys.length > 0">
         <div class="col-md-12">
           <!-- <div *ngFor="let items of img_list" style="width: 20%; float: left;">
@@ -141,8 +166,52 @@
           </table>
         </div>
       </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- <div class="row title-border" *ngIf="screening2details.length > 0">
+    <div class="col-md-12">
+      <div class="row ">
+        <div class="col-md-12 title-deco">
+          <b>Screening 2 Input: After Visit</b>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          
+          &nbsp;
+        </div>
+      </div>
+      <div class="row" *ngIf="keys.length > 0">
+        <div class="col-md-12">
+           <div *ngFor="let items of img_list" style="width: 20%; float: left;">
+              <img [src] = items width="50" height="50" (mouseenter)="onover(items);">
+              
+          </div> 
+          <table class="table table-border" *ngIf="keys.length > 0 && screening2details.length > 0">
+            <thead>
+              <tr>
+                <th *ngFor="let keyData of keys">
+                  <span *ngIf="keyData != 'ID' && keyData != 'Main_Header_Seq'">{{ keyData }}</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of screening2details">
+                <td *ngFor="let keyData of data; let i=index">
+                  <span style="font-weight: bold" *ngIf="keyData.key === 'Classification'">{{ keyData.value }}</span>
+                  <span *ngIf="keyData.key === 'Questions'">{{ keyData.value }}</span>
+                  <p *ngIf="keyData.key != 'ID' && keyData.key != 'Questions' && keyData.key != 'Classification'" 
+                  class="rcorners1" 
+                  [style.background-color]="[keyData.value]">
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
+  </div> -->
   
   <div class="row" *ngIf="(userName !== 'admin' && isScreenDone == '0')">
     <div class="col-md-9">
@@ -175,3 +244,8 @@
     </div>
   </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>

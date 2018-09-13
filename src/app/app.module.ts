@@ -8,9 +8,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AgmCoreModule } from '@agm/core';
 
 import { MatCardModule, MatSidenavModule, MatListModule, MatIconModule,
-          MatStepperModule, MatDatepickerModule } from '@angular/material';  
+          MatStepperModule, MatDatepickerModule, MatExpansionModule } from '@angular/material';  
           
-import { FileUploadModule } from '../../node_modules/ng2-file-upload';         
+import { FileUploadModule } from '../../node_modules/ng2-file-upload'; 
+
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -76,10 +78,12 @@ import { NewPropertyPreviewComponent } from './new-property-preview/new-property
     MatStepperModule,
     MatDatepickerModule,
     FileUploadModule,
+    MatExpansionModule,
+    LayoutModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCetJihayJEcBO1yWmNa7K8nwZOkdzbIOE' 
+      apiKey: '' /*AIzaSyCetJihayJEcBO1yWmNa7K8nwZOkdzbIOE*/
     }),
     BrowserAnimationsModule
   ],
