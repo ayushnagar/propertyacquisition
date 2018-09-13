@@ -72,7 +72,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-11" *ngIf="quest.Answers.length > 1;let j=index">
+      <div class="col-md-11" *ngIf="quest.Answers.length > 1">
         <div *ngFor="let ans of quest.Answers" class="form-check form-check-inline">
           <input type="radio" [name]="'rb_' + i" value="ans.Options" (change)="getRadioSelection(i, ans.Options);">{{ans.Options}}
         </div>   

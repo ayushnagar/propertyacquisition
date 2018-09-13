@@ -1,0 +1,6 @@
+input[type="text"]:invalid ~ .input-validation::before
+{
+    content: "Invalid";
+    color : red;
+    /* background-image: url(../../assets/images/wrong.png) no-repeat top right; */
+}

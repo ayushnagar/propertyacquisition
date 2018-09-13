@@ -8,7 +8,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AgmCoreModule } from '@agm/core';
 
 import { MatCardModule, MatSidenavModule, MatListModule, MatIconModule,
-          MatStepperModule } from '@angular/material';
+          MatStepperModule, MatDatepickerModule } from '@angular/material';  
+          
+import { FileUploadModule } from '../../node_modules/ng2-file-upload';         
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -32,6 +34,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LocationMapComponent } from './location-map/location-map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewPropertyComponent } from './new-property/new-property.component';
+import { NewPropertyCreationComponent } from './new-property-creation/new-property-creation.component';
+import { NewPropertyQuestionnariesComponent } from './new-property-questionnaries/new-property-questionnaries.component';
+import { NewPropertyDocumentUploadComponent } from './new-property-document-upload/new-property-document-upload.component';
+import { NewPropertyPreviewComponent } from './new-property-preview/new-property-preview.component';
 
 
 @NgModule({
@@ -52,7 +58,11 @@ import { NewPropertyComponent } from './new-property/new-property.component';
     LogoutComponent,
     UserProfileComponent,
     LocationMapComponent,
-    NewPropertyComponent
+    NewPropertyComponent,
+    NewPropertyCreationComponent,
+    NewPropertyQuestionnariesComponent,
+    NewPropertyDocumentUploadComponent,
+    NewPropertyPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +74,8 @@ import { NewPropertyComponent } from './new-property/new-property.component';
     MatListModule,
     MatIconModule,
     MatStepperModule,
+    MatDatepickerModule,
+    FileUploadModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     AgmCoreModule.forRoot({

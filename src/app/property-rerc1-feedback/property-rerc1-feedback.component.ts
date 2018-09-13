@@ -4,7 +4,7 @@ import { PropertyService } from '../services/property.service';
 
 import {Property} from '../models/property';
 import {PropertyScreening} from '../models/propertyScreening';
-import { questionService } from '../services/question-service.service';
+import { QuestionService } from '../services/question-service.service';
 
 declare let alertify : any;
 
@@ -12,7 +12,7 @@ declare let alertify : any;
   selector: 'app-property-rerc1-feedback',
   templateUrl: './property-rerc1-feedback.component.html',
   styleUrls: ['./property-rerc1-feedback.component.css'],
-  providers : [PropertyService, questionService]
+  providers : [PropertyService, QuestionService]
 })
 export class PropertyRerc1FeedbackComponent implements OnInit {
 

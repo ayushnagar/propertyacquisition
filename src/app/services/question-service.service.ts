@@ -3,7 +3,7 @@ import { Http, HttpModule } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class questionService {
+export class QuestionService {
 
   url : string = "https://raymondcentral.com/PropertyAquisitionAPI/api/Question";
 

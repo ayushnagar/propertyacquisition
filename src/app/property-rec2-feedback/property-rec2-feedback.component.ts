@@ -5,7 +5,7 @@ import {Property} from '../models/property';
 import { ScreeningAnswer } from '../models/screeningAnswer';
 
 import { PropertyService } from '../services/property.service';
-import { questionService } from '../services/question-service.service';
+import { QuestionService } from '../services/question-service.service';
 
 declare let alertify : any;
 
@@ -13,7 +13,7 @@ declare let alertify : any;
   selector: 'app-property-rec2-feedback',
   templateUrl: './property-rec2-feedback.component.html',
   styleUrls: ['./property-rec2-feedback.component.css'],
-  providers : [PropertyService, questionService]
+  providers : [PropertyService, QuestionService]
 })
 export class PropertyRec2FeedbackComponent implements OnInit {
 
@@ -45,7 +45,7 @@ export class PropertyRec2FeedbackComponent implements OnInit {
   status : any[] = [];
 
   constructor(private activatedRoutes: ActivatedRoute, private route : Router,
-              private propertyService : PropertyService, private questions: questionService) { 
+              private propertyService : PropertyService, private questions: QuestionService) { 
     this.userName = localStorage.getItem("UserName");
     this.designation = localStorage.getItem("Designation");
     this.userID = parseInt(localStorage.getItem("UserID"));

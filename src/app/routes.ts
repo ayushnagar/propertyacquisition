@@ -11,11 +11,12 @@ import { PropertyRec2FeedbackComponent } from './property-rec2-feedback/property
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NewPropertyComponent } from './new-property/new-property.component';
 
 
 export const appRoutes : Routes = [
     { path: '', component: LoginComponent },
-    { path: 'propertycreation', component: PropertyCreationComponent, canActivate: [AuthGuard]},
+    { path: 'propertycreation', component: NewPropertyComponent, canActivate: [AuthGuard]},
     { path : 'propertyquestionnaries', component: PropertyQuestionarriesComponent, canActivate: [AuthGuard]},
     { path : 'propertyrercfeedback', component: PropertyRerc1FeedbackComponent, canActivate: [AuthGuard]},
     // 

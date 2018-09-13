@@ -1,10 +1,19 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step>
     <ng-template matStepLabel>Create New Property</ng-template>
+    <app-new-property-creation></app-new-property-creation>
     
-    <div>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-    
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Fill Questionnaries</ng-template>
+    <app-new-property-questionnaries></app-new-property-questionnaries>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Upload Images or Documents</ng-template>
+      <app-new-property-document-upload></app-new-property-document-upload>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Property Preview</ng-template>
+      <app-new-property-preview></app-new-property-preview>
   </mat-step>
 </mat-horizontal-stepper>
